@@ -1,0 +1,23 @@
+# build artifacts
+*.o
+*.elf
+*.bin
+*.img
+*.map
+*.lst
+*.iso
+*.vdi
+*.log
+*.tmp
+dump*.bin
+memory_dump.bin
+disk.img
+
+# dirs
+/build/
+*.dSYM/
+.qemu*
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
