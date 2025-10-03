@@ -4,4 +4,16 @@
 # Скомпилированные файлы
 *.bin
 *.img
+*.o
+*.elf
+*.map
+*.lst
+*.iso
+*.vdi
+*.log
+
 memory_dump.bin
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
