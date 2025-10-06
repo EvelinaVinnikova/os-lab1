@@ -1,25 +1,12 @@
-[ORG 0x7E00] ; Сообщаем ядру его реальный адрес в памяти
-; kernel.asm - Наше простое "ядро"
-[BITS 16]
-
-start:
-    ; Выводим сообщение, чтобы показать, что мы загрузились
-    mov si, msg_kernel
-    call print_string
-
-    hlt ; Останавливаем процессор
-
-; --- Функция для печати строки (такая же, как в загрузчике) ---
-print_string:
-    mov ah, 0x0E
-.loop:
-    lodsb
-    cmp al, 0
-    je .done
-    int 0x10
-    jmp .loop
-.done:
-    ret
-
-; --- Данные ---
-msg_kernel db 'Kernel loaded successfully!', 0
+[BITS 32]
+global _start
+_start:
+    mov ax,0x10
+    mov ds,ax
+    mov es,ax
+    mov ss,ax
+    mov esp,0x90000
+    mov word [0xB8000],0x074B   ; 'K'
+    mov word [0xB8002],0x0752   ; 'R'
+.hang: hlt
+      jmp .hang
